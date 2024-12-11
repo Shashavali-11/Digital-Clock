@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+  body {
+    font-family: "Poppins", sans-serif;
+    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    color: #ffffff;
+    text-align: center;
+  }
+
+  #container {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 30px 50px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    text-align: center;
+    max-width: 400px;
+  }
+
+  #container::before {
+    content: "Digital Clock Date & Time";
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    display: block;
+    color: #f4f4f4;
+  }
+
+  #loading1,
+  #loading2 {
+    font-size: 28px;
+    font-weight: bold;
+    padding: 15px 25px;
+    color: #ffffff;
+    background: linear-gradient(90deg, #56ccf2, #2f80ed);
+    border-radius: 12px;
+    margin: 15px 0;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    display: inline-block;
+    animation: glow 1.5s ease-in-out infinite;
+  }
+
+  #loading1 {
+    background: linear-gradient(90deg, #ffafbd, #ffc3a0);
+  }
+
+  #loading2 {
+    background: linear-gradient(90deg, #89f7fe, #66a6ff);
+  }
+
+  @keyframes glow {
+    0% {
+      transform: scale(1);
+      box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+    }
+    50% {
+      transform: scale(1.05);
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.7);
+    }
+    100% {
+      transform: scale(1);
+      box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+    }
+  }
+</style>
+
+  </head>
+  <body>
+    <div id="container">
+      <div id="loading2"></div><br>
+
+      <div id="loading1"></div>
+
+    </div>
+    <script>
+      // Set Digital Time  -- setInterval
+      setInterval(() => {
+        let data = new Date();
+        document.getElementById("loading1").innerText =
+          data.toLocaleDateString();
+        document.getElementById("loading2").innerText =
+          data.toLocaleTimeString();
+
+        setInterval(fun, 1000);
+      });
+    </script>
+  </body>
+</html>
